@@ -1,0 +1,32 @@
+name: Hello world workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  # so, user could click button to trigger in github pages
+  workflow_dispatch:
+
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      # use a pre-defined action
+      # you could goto https://github.com/actions/checkout
+      # to see the detail of the action
+      # @ version 2
+      - uses: actions/checkout@v2
+      - name: hello world
+        run: echo "Hello world"
+        shell: bash
+
+  goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: goodbye world
+        run: echo "Goodbye world"
+        shell: bash
